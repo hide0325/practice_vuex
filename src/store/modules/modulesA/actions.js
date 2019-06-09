@@ -4,5 +4,10 @@ export default {
     payload = rootState;
     // console.log(payload);
     commit("increment", payload);
+  },
+  // rootのアクションをdispatch
+  fromModulesA({ dispatch }, payload) {
+    // rootのアクションにpayloadが必要なければnullでOK
+    dispatch("rootIncrementA", payload, { root: true });
   }
 };

@@ -2,9 +2,11 @@
   <div id="app">
     <img width="25%" src="./assets/logo.png">
     <HelloWorld :msg="text"/>
+    <button @click="fromModulesA({ name: 'ken' })">ROOT UP</button>
     <button @click="incrementA({ name: 'takeshi' })">UP</button>
     {{ resultNum }}
     <button @click="decrementA({ name: 'mary' })">DOWN</button>
+    <button @click="fromModulesB({ name: 'ann' })">ROOT DOWN</button>
   </div>
 </template>
 
@@ -28,7 +30,7 @@ export default {
     ...mapState(["num"]),
     // moduleのステートを加工したものをマッピング（moduleのステートとゲッターズが受け取れる）
     ...mapState("modulesA", {
-      judge(state, getters) {
+      judge(state, getters, c) {
         // console.log(state, getters);
         return state.count > 0;
       }
@@ -43,8 +45,18 @@ export default {
   },
   methods: {
     ...mapActions("modulesA", ["incrementA"]),
-    ...mapMutations("modulesA", ["increment"]),
-    ...mapActions("modulesB", ["decrementA"])
+    ...mapActions("modulesB", { 
+      decrementA: "decrementA"
+    }),
+    // root定義のアクションを呼び足すアクションをマッピング
+    ...mapActions("modulesA", ["fromModulesA"]),
+    // root定義のアクションを呼び足すアクションをマッピング
+    ...mapActions("modulesB", ["fromModulesB"])
+  },
+  watch: {
+    resultNum(val) {
+      if(val <= 0) alert('limit!')
+    }
   },
   mounted() {
     console.log(this.nameB, this.countB, this.judge, this.num);

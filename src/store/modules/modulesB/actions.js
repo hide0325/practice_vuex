@@ -4,5 +4,10 @@ export default {
     payload = rootState;
     // console.log(payload);
     commit("decrement", payload);
+  },
+  // rootのミューテーションをcommit
+  fromModulesB({ commit }, payload) {
+    // rootのアクションにpayloadが必要なければnullでOK
+    commit("rootDecrement", payload, { root: true });
   }
 };
