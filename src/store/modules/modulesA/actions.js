@@ -1,8 +1,8 @@
 export default {
   incrementA({ rootState, commit }, payload) {
     // payloadにルートステートを代入
-    // payload = rootState;
     console.log(payload);
+    payload = rootState;
     commit("increment", payload);
   },
   // rootのアクションをdispatch

@@ -1,24 +1,27 @@
 <template>
   <div id="app">
     <img width="25%" src="./assets/logo.png">
-    <HelloWorld :msg="text"/>
+    <HelloWorld :msg="text" />
     <button @click="fromModulesB({ name: 'ann' })">ROOT DOWN</button>
     <button @click="decrementA({ name: 'mary' })">DOWN</button>
     {{ resultNum }}
     <button @click="incrementA({ name: 'takeshi' })">UP</button>
     <button @click="fromModulesA({ name: 'ken' })">ROOT UP</button>
+    <Reuse />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld";
+import Reuse from "./components/Reuse";
 
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+    Reuse
   },
   data() {
     return {

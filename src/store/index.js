@@ -12,11 +12,15 @@ import actions from "./actions";
 // modules
 import modulesA from "./modules/modulesA";
 import modulesB from "./modules/modulesB";
+import modulesReuse from "./modules/modulesReuse";
 
 const store = new Vuex.Store({
   modules: {
     modulesA,
-    modulesB
+    modulesB,
+    modulesReuse1: modulesReuse,
+    modulesReuse2: modulesReuse,
+    modulesReuse3: modulesReuse
   },
   state,
   getters,
