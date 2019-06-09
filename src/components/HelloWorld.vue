@@ -1,14 +1,29 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button @click="incrementA({ name: 'createNamespacedHelpers' })">UP</button>
+    <p>{{ name }}</p>
   </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapState } = createNamespacedHelpers('modulesB');
+const { mapActions } = createNamespacedHelpers('modulesA');
+
 export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  computed: {
+    // modulesBのステートをマッピング
+    ...mapState(["name"])
+  },
+  methods: {
+    // modulesAのアクションをマッピング
+    ...mapActions(["incrementA"])
   }
 };
 </script>

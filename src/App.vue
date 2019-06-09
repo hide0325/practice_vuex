@@ -2,11 +2,11 @@
   <div id="app">
     <img width="25%" src="./assets/logo.png">
     <HelloWorld :msg="text"/>
-    <button @click="fromModulesA({ name: 'ken' })">ROOT UP</button>
-    <button @click="incrementA({ name: 'takeshi' })">UP</button>
-    {{ resultNum }}
-    <button @click="decrementA({ name: 'mary' })">DOWN</button>
     <button @click="fromModulesB({ name: 'ann' })">ROOT DOWN</button>
+    <button @click="decrementA({ name: 'mary' })">DOWN</button>
+    {{ resultNum }}
+    <button @click="incrementA({ name: 'takeshi' })">UP</button>
+    <button @click="fromModulesA({ name: 'ken' })">ROOT UP</button>
   </div>
 </template>
 
@@ -48,9 +48,9 @@ export default {
     ...mapActions("modulesB", { 
       decrementA: "decrementA"
     }),
-    // root定義のアクションを呼び足すアクションをマッピング
+    // root定義のアクションを呼び出す、モジュールのアクションをマッピング
     ...mapActions("modulesA", ["fromModulesA"]),
-    // root定義のアクションを呼び足すアクションをマッピング
+    // root定義のアクションを呼び出す、モジュールのアクションをマッピング
     ...mapActions("modulesB", ["fromModulesB"])
   },
   watch: {

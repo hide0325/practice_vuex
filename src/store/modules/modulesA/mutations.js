@@ -4,7 +4,7 @@ export default {
     // console.log(state)
     state = payload;
     // ここで参照をルートに変更
-    console.log(state);
+    // console.log(state);
     state.num += 1;
   }
 };
