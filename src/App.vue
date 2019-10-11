@@ -8,12 +8,14 @@
     <button @click="incrementA({ name: 'takeshi' })">UP</button>
     <button @click="fromModulesA({ name: 'ken' })">ROOT UP</button>
     <Reuse />
+    <Register />
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld";
 import Reuse from "./components/Reuse";
+import Register from "./components/Register";
 
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
@@ -21,7 +23,8 @@ export default {
   name: "App",
   components: {
     HelloWorld,
-    Reuse
+    Reuse,
+    Register
   },
   data() {
     return {
@@ -62,7 +65,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.nameB, this.countB, this.judge, this.num);
+    // console.log(this.nameB, this.countB, this.judge, this.num);
   }
 };
 </script>

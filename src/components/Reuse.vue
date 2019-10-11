@@ -22,7 +22,11 @@ export default {
   name: 'reuse',
   computed: {
     // モジュールのstateのリユース記法１
-    ...mapState(["modulesReuse1", "modulesReuse2", "modulesReuse3"])
+    ...mapState([
+      "modulesReuse1",
+      "modulesReuse2",
+      "modulesReuse3"
+    ])
 
     // モジュールのstateのリユース記法２
     // ...mapState('modulesReuse1', { count1: 'count' }),
