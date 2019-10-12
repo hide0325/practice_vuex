@@ -1,5 +1,4 @@
 export default {
-  resultNum(state) {
-    return state.num;
-  }
-};
+  resultNum: state => state.num,
+  resultNumLength: state => state.num*5
+}

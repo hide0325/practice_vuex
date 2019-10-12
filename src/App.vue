@@ -9,22 +9,25 @@
     <button @click="fromModulesA({ name: 'ken' })">ROOT UP</button>
     <Reuse />
     <Register />
+    <Subscribe />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-import Reuse from "./components/Reuse";
-import Register from "./components/Register";
+import HelloWorld from "@/components/HelloWorld"
+import Reuse from "@/components/Reuse"
+import Register from "@/components/Register"
+import Subscribe from "@/components/Subscribe"
 
-import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex"
 
 export default {
   name: "App",
   components: {
     HelloWorld,
     Reuse,
-    Register
+    Register,
+    Subscribe
   },
   data() {
     return {
@@ -38,7 +41,7 @@ export default {
     ...mapState("modulesA", {
       judge(state, getters, c) {
         // console.log(state, getters);
-        return state.count > 0;
+        return state.count > 0
       }
     }),
     // moduleのステートを別名でマッピング
@@ -63,9 +66,6 @@ export default {
     resultNum(val) {
       if(val <= 0) alert('limit!')
     }
-  },
-  mounted() {
-    // console.log(this.nameB, this.countB, this.judge, this.num);
   }
 };
 </script>
