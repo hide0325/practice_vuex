@@ -19,7 +19,6 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: 'reuse',
   computed: {
     // モジュールのstateのリユース記法１
     ...mapState([

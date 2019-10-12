@@ -13,7 +13,6 @@ const { mapState } = createNamespacedHelpers('modulesB');
 const { mapActions } = createNamespacedHelpers('modulesA');
 
 export default {
-  name: "HelloWorld",
   props: {
     msg: String
   },
